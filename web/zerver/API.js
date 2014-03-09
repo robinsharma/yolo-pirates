@@ -1,11 +1,11 @@
-var https = require('https');
+var http = require('http');
 
 var BASE_URL = 'http://isithackday.com/arrpi.php';
 
 exports.getYoloPirates = function (msg, callback) {
 	var retVal = { err: false, translation: '' };
 
-	http.get(encodeURI(base+'?text='+msg), function (res) {
+	http.get(encodeURI(BASE_URL+'?text='+msg), function (res) {
 		var pageData = "";
 		res.on('data', function (chunk) {
 			pageData += chunk;

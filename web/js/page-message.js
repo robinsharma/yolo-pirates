@@ -1,3 +1,3 @@
-App.populator ('fav', function ($page) {
-	//TODO
+App.populator ('message', function ($page, data) {
+	console.log(data);
 });
