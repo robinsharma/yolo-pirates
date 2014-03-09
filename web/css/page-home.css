@@ -19,12 +19,6 @@
 .home-page .button-section .app-button {
 	color: black;
 	margin-bottom: 10px;
-	border-right: 3px solid rgba(121, 119, 119, 0.24);
-	border-bottom: 3px solid rgba(121, 119, 119, 0.24);
-}
-
-.home-page .button-section .app-button.active {
-	border: 3px;
-	padding-bottom: 3px;
-	padding-right: 3px;
+	border-right: 2px solid #DDD;
+	border-bottom: 2px solid #DDD;
 }
