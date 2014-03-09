@@ -11,7 +11,9 @@ App.populator( 'home', function ($page) {
 		//////////////////////////////////////////////////////////////////////////////////////////
 			if (previewed) {
 				if (previewText !== $textBox.value) {
+					$page.querySelector('.preview-spinner').style.display = 'block';
 					piratizeMessage($textBox.value, function (pmsg) {
+						$page.querySelector('.preview-spinner').style.display = 'none';
 						if (pmsg) {
 							$previewBox.innerText = previewText = pmsg;
 						}
@@ -19,7 +21,9 @@ App.populator( 'home', function ($page) {
 				}
 			} else {
 				previewed = true;
+				$page.querySelector('.preview-spinner').style.display = 'block';
 				piratizeMessage($textBox.value, function (pmsg) {
+					$page.querySelector('.preview-spinner').style.display = 'none';
 					if (pmsg) {
 						$previewBox.innerText = previewText = pmsg;
 					}
@@ -34,12 +38,16 @@ App.populator( 'home', function ($page) {
 		////////////////////////////////////////////////////
 			if (previewed) {
 				if (previewText !== $textBox.value) {
+					$page.querySelector('.preview-spinner').style.display = 'block';
 					piratizeMessageAndSend($textBox.value);
+					$page.querySelector('.preview-spinner').style.display = 'none';
 				} else {
 					kik.send({ title: 'Yolo Pirate Message', text: previewText, data: { msg: previewText }  });
 				}
 			} else {
+				$page.querySelector('.preview-spinner').style.display = 'block';
 				piratizeMessageAndSend($textBox.value);
+				$page.querySelector('.preview-spinner').style.display = 'none';
 			}
 		//////////////////////////////////////////////////
 		}

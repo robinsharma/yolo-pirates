@@ -22,3 +22,13 @@
 	border-right: 2px solid #DDD;
 	border-bottom: 2px solid #DDD;
 }
+
+.home-page .preview-section .preview-spinner {
+	background-image: url('/img/spinner_128.gif?inline=1');
+	display: none;
+	width: 100%;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
