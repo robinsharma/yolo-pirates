@@ -2,3 +2,8 @@
 	font-family: piratized;
 	src: url('/fonts/Treamd.ttf?inline=1');
 }
+
+@font-face {
+	font-family: shippy;
+	src: url('/fonts/ArmadaPirata.ttf?inline=1');
+}
