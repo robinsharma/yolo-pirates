@@ -1,5 +1,9 @@
 (function (App) {
-	App.load('home');
+	if (kik.message) {
+		App.load('message', kik.message);
+	} else {
+		App.load('home');
+	}
 
 	//TODO: Flow
 	
