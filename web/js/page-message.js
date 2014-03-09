@@ -7,7 +7,9 @@ App.populator ('message', function ($page, data) {
 	$pirateBox.innerText = data.msg;
 
 	$backButton.addEventListener('click', function() {
-		App.back();
+		if (!App.back()) {
+			App.load('home', 'slide-right');
+		}
 	});
 
 	$fwdButton.addEventListener('click', function() {
