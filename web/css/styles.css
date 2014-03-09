@@ -7,3 +7,14 @@
 	font-family: shippy;
 	src: url('/fonts/ArmadaPirata.ttf?inline=1');
 }
+
+.logo {
+	font-family: shippy;
+	font-size: 120px;
+	background-color: white;
+	width: 160px;
+	border-radius: 100px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 40px
+}
