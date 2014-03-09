@@ -1,12 +1,12 @@
 App.populator ('message', function ($page, data) {
 	console.log(data);
-	var $pirateBox = $page.querySelector('TO-DO'),
-		$homeButton = $page.querySelector('TO-DO'),
-		$fwdButton = $page.querySelector('TO-DO');
+	var $pirateBox = $page.querySelector('.translated-message'),
+		$backButton = $page.querySelector('.button-back'),
+		$fwdButton = $page.querySelector('.button-send');
 
-	$pirateBox.value = data;
+	$pirateBox.innerText = data.msg;
 
-	$homeButton.addEventListener('click', function() {
+	$backButton.addEventListener('click', function() {
 		App.back();
 	});
 
@@ -14,8 +14,8 @@ App.populator ('message', function ($page, data) {
 		if (kik.send) {
 			kik.send({
 				title: 'Yolo Pirate Message',
-				text: data,
-				data: { msg: data }
+				text: data.msg,
+				data: { msg: data.msg }
 			});
 		}
 	});

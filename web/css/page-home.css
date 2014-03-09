@@ -11,18 +11,6 @@
 	font-size: 18px;
 }
 
-.home-page .button-section {
-	padding: 0 20px;
-	font-size: 24px;
-}
-
-.home-page .button-section .app-button {
-	color: black;
-	margin-bottom: 10px;
-	border-right: 2px solid #DDD;
-	border-bottom: 2px solid #DDD;
-}
-
 .home-page .preview-section .preview-spinner {
 	background-image: url('/img/spinner_128.gif?inline=1');
 	display: none;
