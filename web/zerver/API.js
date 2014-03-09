@@ -5,7 +5,10 @@ var BASE_URL = 'http://isithackday.com/arrpi.php';
 exports.getYoloPirates = function (msg, callback) {
 	var retVal = { err: false, translation: '' };
 
+<<<<<<< HEAD
 	http.get(encodeURI(BASE_URL+'?text='+msg), function (res) {
+=======
+>>>>>>> 13e5c312cda3438c5b285984a77bd4b75f881ceb
 		var pageData = "";
 		res.on('data', function (chunk) {
 			pageData += chunk;
@@ -23,4 +26,3 @@ exports.getYoloPirates = function (msg, callback) {
 		callback(retVal);
 	});
 }
-
