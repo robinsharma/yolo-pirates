@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+/css/app.css
+/css/styles.css
+/css/page-home.css
+/css/page-message.css
+
+/zerver/API.js
+/js/app.js
+/js/kik.js
+/js/page-home.js
+/js/page-fav.js
+/js/main.js
+
+NETWORK:
+*

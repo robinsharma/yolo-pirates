@@ -1,0 +1,14 @@
+TODO:
+1. Main page
+2. Message page
+3. Send flow
+4. Recieve flow
+
+
+// Backend
+// Front end
+// Google analytics
+
+//Generate logos
+//Description
+//Canonical
