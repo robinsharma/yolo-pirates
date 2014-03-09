@@ -1,2 +1,30 @@
 .home-page {}	
 
+.home-page .text-box {
+	padding: 20px;
+}
+
+.home-page .text-box .message-box {
+	background-color: white;
+	font-weight: 200;
+	text-align: center;
+	font-size: 18px;
+}
+
+.home-page .button-section {
+	padding: 0 20px;
+	font-size: 24px;
+}
+
+.home-page .button-section .app-button {
+	color: black;
+	margin-bottom: 10px;
+	border-right: 3px solid rgba(121, 119, 119, 0.24);
+	border-bottom: 3px solid rgba(121, 119, 119, 0.24);
+}
+
+.home-page .button-section .app-button.active {
+	border: 3px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+}

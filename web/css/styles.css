@@ -8,13 +8,21 @@
 	src: url('/fonts/ArmadaPirata.ttf?inline=1');
 }
 
-.logo {
+.symbol {
 	font-family: shippy;
+}
+
+.pirate {
+	font-family: piratized;
+}
+
+.logo {
 	font-size: 120px;
 	background-color: white;
 	width: 160px;
+	height: 160px;
 	border-radius: 100px;
 	margin: 0 auto;
 	text-align: center;
-	margin-top: 40px
+	margin-top: 20px;
 }
