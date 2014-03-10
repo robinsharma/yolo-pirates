@@ -38,3 +38,8 @@
 	border-right: 2px solid #DDD;
 	border-bottom: 2px solid #DDD;
 }
+
+.translated-message {
+	padding: 20px;
+	font-size: 30px;
+}
