@@ -1,15 +1,13 @@
 App.populator ('message', function ($page, data) {
 	console.log(data);
 	var $pirateBox = $page.querySelector('.translated-message'),
-		$backButton = $page.querySelector('.button-back'),
-		$fwdButton = $page.querySelector('.button-send');
+		$backButton = $page.querySelector('.back-button'),
+		$fwdButton = $page.querySelector('.fwd-button');
 
 	$pirateBox.innerText = data.msg;
 
 	$backButton.addEventListener('click', function() {
-		if (!App.back()) {
-			App.load('home', 'slide-right');
-		}
+		App.load('home', 'slide-right');
 	});
 
 	$fwdButton.addEventListener('click', function() {
