@@ -1,18 +1,24 @@
 App.populator( 'home', function ($page) {
 	var previewText,
-		$textBox        = $page.querySelector('.message-box'),
-		$sendButton     = $page.querySelector('.send-button'),
-		$previewButton  = $page.querySelector('.preview-button'),
-		$previewBox     = $page.querySelector('.preview-text'),
-		previewed       = false;
+		$textBox           = $page.querySelector('.message-box'),
+		$sendButton        = $page.querySelector('.send-button'),
+		$sendButtonText    = $sendButton.querySelector('.button-text'),
+		$previewButton     = $page.querySelector('.preview-button'),
+		$previewButtonText = $previewButton.querySelector('.button-text'),
+		$previewBox        = $page.querySelector('.preview-text'),
+		$previewSpinner    = $previewButton.querySelector('.spinner'),
+		$sendSpinner       = $sendButton.querySelector('.spinner'),
+		previewed          = false;
 
 	$previewButton.addEventListener('click', function() {
 		if ($textBox.value) {
 			if (previewed) {
 				if (previewText !== $textBox.value) {
-					$page.querySelector('.preview-spinner').style.display = 'block';
+					$previewButtonText.innerText = '';
+					$previewSpinner.classList.add('enabled');
 					piratizeMessage($textBox.value, function (pmsg) {
-						$page.querySelector('.preview-spinner').style.display = 'none';
+						$previewButtonText.innerText = 'Preview';
+						$previewSpinner.classList.remove('enabled');
 						if (pmsg) {
 							$previewBox.innerText = previewText = pmsg;
 						}
@@ -20,9 +26,11 @@ App.populator( 'home', function ($page) {
 				}
 			} else {
 				previewed = true;
-				$page.querySelector('.preview-spinner').style.display = 'block';
+				$previewButtonText.innerText = '';
+				$previewSpinner.classList.add('enabled');
 				piratizeMessage($textBox.value, function (pmsg) {
-					$page.querySelector('.preview-spinner').style.display = 'none';
+					$previewButtonText.innerText = 'Preview';
+					$previewSpinner.classList.remove('enabled');
 					if (pmsg) {
 						$previewBox.innerText = previewText = pmsg;
 					}
@@ -35,16 +43,22 @@ App.populator( 'home', function ($page) {
 		if (kik.send && $textBox.value) {
 			if (previewed) {
 				if (previewText !== $textBox.value) {
-					$page.querySelector('.preview-spinner').style.display = 'block';
-					piratizeMessageAndSend($textBox.value);
-					$page.querySelector('.preview-spinner').style.display = 'none';
+					$sendButtonText.innerText = '';
+					$sendSpinner.classList.add('enabled');
+					piratizeMessageAndSend($textBox.value, function () {
+						$sendButtonText.innerText = 'Send';
+						$sendSpinner.classList.remove('enabled');
+					});
 				} else {
 					kik.send({ title: 'Yolo Pirate Message', text: previewText, data: { msg: previewText }  });
 				}
 			} else {
-				$page.querySelector('.preview-spinner').style.display = 'block';
-				piratizeMessageAndSend($textBox.value);
-				$page.querySelector('.preview-spinner').style.display = 'none';
+				$sendButtonText.innerText = '';
+				$sendSpinner.classList.add('enabled');
+				piratizeMessageAndSend($textBox.value, function () {
+					$sendButtonText.innerText = 'Send';
+					$sendSpinner.classList.remove('enabled');
+				});
 			}
 		}
 	});
@@ -63,7 +77,7 @@ function piratizeMessage (msg, callback) {
 	});
 }
 
-function piratizeMessageAndSend (msg) {
+function piratizeMessageAndSend (msg, callback) {
 	piratizeMessage(msg, function (pmsg) {
 		if (pmsg) {
 			kik.send({
@@ -72,5 +86,6 @@ function piratizeMessageAndSend (msg) {
 				data: { msg: pmsg }
 			});
 		}
+		callback();
 	});
 }
