@@ -3,7 +3,7 @@
 		kik.browser.setOrientationLock('portrait');
 	}
 	try {
-		kik.browser.statusBarTransparent('white');
+		kik.browser.statusBarTransparent('black');
 	} catch (err) {}
 
 	if (kik.message) {
