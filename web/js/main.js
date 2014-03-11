@@ -1,4 +1,6 @@
 (function (App) {
+	kik.metrics.enableGoogleAnalytics('UA-41660805-3', null, true);
+
 	if (kik.browser) {
 		kik.browser.setOrientationLock('portrait');
 	}
