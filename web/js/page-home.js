@@ -50,7 +50,7 @@ App.populator( 'home', function ($page) {
 						$sendSpinner.classList.remove('enabled');
 					});
 				} else {
-					kik.send({ title: 'Yolo Pirate Message', text: previewText, data: { msg: previewText }  });
+					kik.send({ title: 'Tap to open thar message ye scurvy dog!', pic: '/img/yolo_pirate.png', data: { msg: previewText }  });
 				}
 			} else {
 				$sendButtonText.innerText = '';
@@ -79,10 +79,10 @@ function piratizeMessage (msg, callback) {
 
 function piratizeMessageAndSend (msg, callback) {
 	piratizeMessage(msg, function (pmsg) {
-		if (pmsg) {
+		if (pmsg && kik.send) {
 			kik.send({
-				title: 'Yolo Pirate Message',
-				text: pmsg,
+				title: 'Tap to open thar message ye scurvy dog!',
+				pic: '/img/yolo_pirate.png',
 				data: { msg: pmsg }
 			});
 		}

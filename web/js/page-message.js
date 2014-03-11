@@ -13,8 +13,8 @@ App.populator ('message', function ($page, data) {
 	$fwdButton.addEventListener('click', function() {
 		if (kik.send) {
 			kik.send({
-				title: 'Yolo Pirate Message',
-				text: data.msg,
+				title: 'Tap to open thar message ye scurvy dog!',
+				pic: '/img/yolo_pirate.png',
 				data: { msg: data.msg }
 			});
 		}
