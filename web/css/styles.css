@@ -1,6 +1,6 @@
 @font-face {
 	font-family: piratized;
-	src: url(/fonts/Treamd.ttf?inline=1);
+	src: url(/fonts/Starjout.ttf?inline=1);
 }
 
 @font-face {
@@ -49,14 +49,14 @@
 
 .translated-message {
 	padding: 20px;
-	font-size: 32px;
+	font-size: 13px;
 	text-align: center;
 	background-color: #1f1f1f;
 	color: white;
 }
 
 .app-ios .translated-message {
-	font-size: 30px;
+	font-size: 16px;
 }
 
 @-webkit-keyframes spin-it {
