@@ -7,7 +7,8 @@
 	},
 	"dependencies" : {
 		"zerver" : "0.15.x" ,
-		"kik-cards" : "<=0.1.1"
+		"kik-cards" : "<=0.1.1" ,
+		"unirest"   : "0.1.x"
 	},
 	"scripts" : {
 		"start" : "zerver -r web"
