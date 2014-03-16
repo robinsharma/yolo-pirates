@@ -50,7 +50,10 @@ App.populator( 'home', function ($page) {
 						$sendSpinner.classList.remove('enabled');
 					});
 				} else {
-					kik.send({ title: 'Tap to open thar message ye scurvy dog!', pic: '/img/yolo_pirate.png', data: { msg: previewText }  });
+					kik.send({
+            title : 'message ye scurvy dog! Tap to open thar!',
+            pic   : '/img/yolo_pirate.png',
+            data  : { msg: previewText }  });
 				}
 			} else {
 				$sendButtonText.innerText = '';
@@ -64,7 +67,7 @@ App.populator( 'home', function ($page) {
 	});
 });
 
-function piratizeMessage (msg, callback) {
+function piratizeMessage(msg, callback) {
 	ArrPI.getYoloPirates(msg, function (data) {
 		if (data.err) {
 			//TODO
@@ -81,7 +84,7 @@ function piratizeMessageAndSend (msg, callback) {
 	piratizeMessage(msg, function (pmsg) {
 		if (pmsg && kik.send) {
 			kik.send({
-				title: 'Tap to open thar message ye scurvy dog!',
+				title: 'message ye scurvy dog! Tap to open thar!',
 				pic: '/img/yolo_pirate.png',
 				data: { msg: pmsg }
 			});
