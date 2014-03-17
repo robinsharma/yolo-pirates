@@ -16,11 +16,6 @@ App.populator('home', function ($page) {
         turnOnSpinner($previewSpinner);
         piratizeMessage($textBox.value, function (pmsg) {
           turnOffSpinner($previewSpinner)
-          if (pmsg) {
-            $previewBox.innerText = pmsg;
-            previewText = $textBox.value;
-            previewed = true;
-          }
         });
       } else {
         turnOnSpinner($previewSpinner)
@@ -72,13 +67,22 @@ App.populator('home', function ($page) {
 
   function piratizeMessage(msg, callback) {
     ArrPI.getYoloPirates(msg, function (data) {
-      if (data.err) {
-        //TODO
-        console.log('Error: ' + data.err);
-        callback();
+      if (!data || data.err) {
+        App.dialog ({
+          title        : 'Connection Error',
+          text         : 'Please check your connection before trying again.' ,
+          okButton     : 'Try Again' , 
+          cancelButton : 'Cancel'
+        }, function (retry) {
+          if (retry) {
+            piratizeMessage(msg, callback);
+          } else {
+            callback();
+          }
+        });
       } else {
-        console.log('Pirate msg: ' + data.translation);
         callback(data.translation);
+        updatePreview(data.translation);
       }
     });
   }
@@ -98,6 +102,14 @@ App.populator('home', function ($page) {
     piratizeMessage(msg, function (pmsg) {
       if (pmsg) sendMessage(pmsg, callback);
     });
+  }
+
+  function updatePreview(msg) {
+    if (msg) {
+      $previewBox.innerText = msg;
+      previewText = $textBox.value;
+      previewed = true;
+    }
   }
 
 });
