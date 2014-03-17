@@ -13,14 +13,15 @@ exports.getYoloPirates = function (msg, callback) {
 		"X-Mashape-Authorization": "YQWC3AJdS3h3AkqHHCaCmGjyuIkXyNj6"
 	})
 	.end(function (response) {
-		console.log(response);
+		;;; console.log(response);
 		if (response.error) {
 			completed = true;
 			callback();
+		} else {
+			retVal.translation = response.body;
+			completed = true;
+			callback(retVal);
 		}
-		retVal.translation = response.body;
-		completed = true;
-		callback(retVal);
 	});
 
 	setTimeout( function () {
