@@ -12,7 +12,7 @@ App.populator('home', function ($page) {
 
 
   $previewButton.addEventListener('click', function () {
-      if (hasTextToPreview()) {
+      if (apiCallNeeded()) {
         turnOnSpinner($previewSpinner);
         piratizeMessage($textBox.value, function (pmsg) {
           turnOffSpinner($previewSpinner)
@@ -32,22 +32,22 @@ App.populator('home', function ($page) {
   );
 
   $sendButton.addEventListener('click', function () {
-    if (hasTextToPreview()) {
+    if (apiCallNeeded()) {
       turnOnSpinner($sendSpinner)
-      sendMessage($previewBox.innerText.value, function () {
+      piratizeMessageAndSend($textBox.value, function () {
         turnOffSpinner($sendSpinner)
       });
     } else if ($textBox.value) {
       turnOnSpinner($sendSpinner)
-      piratizeMessageAndSend($textBox.value, function () {
+      sendMessage($previewBox.value, function () {
         turnOffSpinner($sendSpinner)
       });
     } else {
     }
   });
 
-  function hasTextToPreview() {
-    return (($textBox.value) && (!previewed || (previewText !== $textBox.value)));
+  function apiCallNeeded() {
+    return (($textBox.value) && (!previewed || (previewed && (previewText !== $textBox.value))));
   }
 
   function turnOnSpinner(spinner) {
