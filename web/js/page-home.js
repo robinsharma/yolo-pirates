@@ -39,7 +39,7 @@ App.populator('home', function ($page) {
       });
     } else if ($textBox.value) {
       turnOnSpinner($sendSpinner)
-      sendMessage($previewBox.value, function () {
+      sendMessage($previewBox.innerText, function () {
         turnOffSpinner($sendSpinner)
       });
     } else {
