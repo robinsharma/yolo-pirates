@@ -49,7 +49,7 @@ App.populator('home', function ($page) {
 	    prependclickcontent:'',
 	    requesturl:'http://kik-madserve.herokuapp.com/md.request.php',
 	    trackingpixelurl:''
-	}, page.querySelector("#banner-container"));
+	}, $page.querySelector("#banner-container"));
 
 	function apiCallNeeded() {
 		return (($textBox.value) && (!previewed || (previewed && (previewText !== $textBox.value))));
